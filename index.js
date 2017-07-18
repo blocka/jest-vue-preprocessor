@@ -36,6 +36,7 @@ const transformTs = (src, path) => {
   let result;
   try {
     result = tsc.transpile(src, compilerOptions, path, []);
+    result = transformBabel(result);
   } catch (error) {
     // eslint-disable-next-line
     console.error('Failed to compile src with `tsc` at `vue-preprocessor`');
